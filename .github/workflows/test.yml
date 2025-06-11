@@ -10,9 +10,9 @@ jobs:
       - name: Get Code
         uses: actions/checkout@v4
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: lts
+          node-version: '18.x'
       - name: Install dependencies
         run: npm ci
       - name: Run Test
