@@ -40,6 +40,6 @@ jobs:
       - name: Build Project
         run: |
           cd 02\ Starting\ Project/
-          npm build
+          npm run build
       - name: Deploy
         run: echo "Deploying..."
