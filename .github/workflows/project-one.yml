@@ -1,0 +1,57 @@
+name: Project 1Deployment Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Install Dependencies
+        run: |
+          cd 04\ Practice\ Project\ \(Start\)/
+          npm ci
+      - name: Run Linter
+        run: |
+          cd 04\ Practice\ Project\ \(Start\)/
+          npm run lint
+  Test:
+    needs: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Install Dependencies
+        run: |
+          cd 04\ Practice\ Project\ \(Start\)/
+          npm ci
+      - name: Run Tests
+        run: |
+          cd 04\ Practice\ Project\ \(Start\)/
+          npm test
+  Deploy:
+    needs: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Install Dependencies
+        run: |
+          cd 04\ Practice\ Project\ \(Start\)/
+          npm ci
+      - name: Build
+        run: |
+          cd 04\ Practice\ Project\ \(Start\)/
+          npm run build
+      - name: Deploy
+        run: echo "Deploying ...."
+  Output:
+    needs: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output Event Details on Issues
+        run: echo "${{  toJson(github.event)  }}"
