@@ -36,8 +36,8 @@ jobs:
         with:
           name: dist-files
           path: |
-            dist
-            package.json
+            ./01-Artifacts-Starting-Project/dist
+            ./01-Artifacts-Starting-Project/package.json
 
   deploy:
     needs: build
