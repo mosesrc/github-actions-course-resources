@@ -1,9 +1,9 @@
 name: Deploy Project
 
-on:
-  push:
-    branches:
-      - test-1
+on: workflow_dispatch
+  # push:
+  #   branches:
+  #     - test-1
 
 jobs:
   test:
