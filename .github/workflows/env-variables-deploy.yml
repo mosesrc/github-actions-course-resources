@@ -5,16 +5,16 @@ on:
       - env-variables
 defaults:
   run:
-    working-directory: ./Env-Variables-Starting-Project
+    working-directory: Env-Variables-Starting-Project
 env:
   MONGO_DB_NAME: environment-var
+  PORT: 8080
 jobs:
   test:
     env:
       MONGODB_CLUSTER_ADDRESS: localhost:27017
       MONGODB_USERNAME: mongoadmin
       MONGODB_PASSWORD: secret
-      PORT: 8080
     services:
       mongo:
         image: mongo:latest
