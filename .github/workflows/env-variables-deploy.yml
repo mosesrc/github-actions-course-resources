@@ -3,7 +3,10 @@ on:
   push:
     branches:
       - env-variables
-env: 
+defaults:
+  run:
+    working-directory: ./Env-Variables-Starting-Project
+env:
   MONGO_DB_NAME: gha-demo
 jobs:
   test:
@@ -34,5 +37,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output information
-        run: |        
+        run: |
           echo "..."
