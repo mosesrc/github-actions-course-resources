@@ -15,6 +15,15 @@ jobs:
       MONGODB_USERNAME: mongoadmin
       MONGODB_PASSWORD: secret
       PORT: 8080
+    services:
+      mongo:
+        image: mongo:latest
+        env:
+          MONGO_INITDB_ROOT_USERNAME: mongoadmin
+          MONGO_INITDB_ROOT_PASSWORD: secret
+          MONGO_INITDB_DATABASE: environment-var
+        ports:
+          - 27017:27017
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
