@@ -84,6 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output Information
+        working-directory: .
         run: |
           echo "Something went wrong"
-          echo "${{ github }}"
+          echo "${{ toJson(github) }}"
