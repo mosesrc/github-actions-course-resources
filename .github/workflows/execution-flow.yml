@@ -1,8 +1,11 @@
-name: Website Deployment
+name: Execution Flow Website Deployment
 on:
   push:
     branches:
-      - main
+      - execution-flow
+defaults:
+  run:
+    working-directory: ./Execution-Flow-Project
 jobs:
   lint:
     runs-on: ubuntu-latest
