@@ -12,10 +12,10 @@ jobs:
   test:
     environment: testing
     env:
+      PORT: 8080
       MONGODB_CLUSTER_ADDRESS: localhost:27017
       MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
       MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
-      PORT: 8080
     services:
       mongo:
         image: mongo:latest
