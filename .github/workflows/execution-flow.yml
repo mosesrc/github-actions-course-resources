@@ -82,9 +82,11 @@ jobs:
     needs: [lint, deploy]
     if: failure()
     runs-on: ubuntu-latest
+    env:
+      INFO: ${{ toJson(github) }}
     steps:
       - name: Output Information
         working-directory: .
         run: |
           echo "Something went wrong"
-          echo "${{ toJson(github) }}"
+          echo "$INFO"
