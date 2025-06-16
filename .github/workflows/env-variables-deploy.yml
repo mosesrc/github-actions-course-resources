@@ -5,7 +5,7 @@ on:
       - env-variables
 defaults:
   run:
-    working-directory: Env-Variables-Starting-Project
+    working-directory: ./Env-Variables-Starting-Project
 env:
   MONGO_DB_NAME: environment-var
 jobs:
