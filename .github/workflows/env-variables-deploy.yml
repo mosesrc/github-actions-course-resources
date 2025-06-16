@@ -47,5 +47,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output information
+        working-directory: .
         run: |
           echo "..."
