@@ -1,4 +1,4 @@
-name: Deployment
+name: Env Variables Deployment
 on:
   push:
     branches:
@@ -7,7 +7,7 @@ defaults:
   run:
     working-directory: ./Env-Variables-Starting-Project
 env:
-  MONGO_DB_NAME: gha-demo
+  MONGO_DB_NAME: environment-var
 jobs:
   test:
     env:
