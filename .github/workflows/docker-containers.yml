@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - docker-container
+defaults:
+  run:
+    working-directory: Docker-Containers-Project
 env:
   CACHE_KEY: node-deps
   MONGODB_DB_NAME: gha-demo
@@ -31,6 +34,7 @@ jobs:
       - name: Run tests
         run: npm test
       - name: Output information
+        working-directory: .
         run: |
           echo "MONGODB_USERNAME: $MONGODB_USERNAME"
   deploy:
@@ -38,6 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output information
+        working-directory: .
         env:
           PORT: 3000
         run: |        
