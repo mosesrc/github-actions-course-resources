@@ -14,11 +14,20 @@ jobs:
     environment: testing
     runs-on: ubuntu-latest
     env:
-      MONGODB_CONNECTION_PROTOCOL: mongodb+srv
-      MONGODB_CLUSTER_ADDRESS: cluster0.ntrwp.mongodb.net
+      MONGODB_CONNECTION_PROTOCOL: mongodb
+      MONGODB_CLUSTER_ADDRESS: localhost:27017
       MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
       MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       PORT: 8080
+    services:
+      mongo:
+        image: mongo:latest
+        env:
+          MONGO_INITDB_ROOT_USERNAME: mongoadmin
+          MONGO_INITDB_ROOT_PASSWORD: secret
+          MONGO_INITDB_DATABASE: environment-var
+        ports:
+          - 27017:27017
     steps:
       - name: Get Code
         uses: actions/checkout@v3
@@ -45,7 +54,7 @@ jobs:
         working-directory: .
         env:
           PORT: 3000
-        run: |        
+        run: |
           echo "MONGODB_DB_NAME: $MONGODB_DB_NAME"
           echo "MONGODB_USERNAME: $MONGODB_USERNAME"
           echo "${{ env.PORT }}"
