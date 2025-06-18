@@ -3,13 +3,6 @@ description: "Get the dependencies (via npm) and cache them."
 runs:
   using: "composite"
   steps:
-    - name: Check for lockfile
-        run: |
-          if [ ! -f package-lock.json ]; then
-            echo "❌ package-lock.json not found."
-            exit 1
-          fi
-        shell: bash
     - name: Cache dependencies
       id: cache
       uses: actions/cache@v3
@@ -18,5 +11,6 @@ runs:
         key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
     - name: Install dependencies
       if: steps.cache.outputs.cache-hit != 'true'
+      working-directory: ./Custom-Actions-Project
       run: npm ci
       shell: bash

@@ -5,7 +5,7 @@ on:
       - custom-actions
 defaults:
   run:
-    working-directory: Custom-Actions-Project
+    working-directory: ./Custom-Actions-Project
 jobs:
   lint:
     runs-on: ubuntu-latest
