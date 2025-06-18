@@ -71,9 +71,6 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: .
     steps:
       - name: Get code
         uses: actions/checkout@v4
@@ -85,4 +82,5 @@ jobs:
       - name: Output contents
         run: ls
       - name: Deploy site
+        working-directory: .
         run: echo "Deploying..."
