@@ -16,7 +16,7 @@ jobs:
         uses: ./.github/actions/cached-deps
         with:
           working-directory: Custom-Actions-Project
-          caching: 'false'
+          caching: false
       - name: Lint code
         run: npm run lint
   test:
