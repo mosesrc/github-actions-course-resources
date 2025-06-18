@@ -85,3 +85,11 @@ jobs:
       - name: Deploy site
         working-directory: .
         run: echo "Deploying..."
+  information:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - name: Run Custom Action
+        uses: ./.github/actions/deploy-s3-javascript
